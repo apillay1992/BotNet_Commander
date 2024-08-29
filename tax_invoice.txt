@@ -1,0 +1,25 @@
+			TAX INVOICE
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+INVOICED TO:
+
++-----------------------+-----------------------------+
+| Expert type           | customer                    |
++-----------------------+-----------------------------+
+| Name                  | Julian                      |
++-----------------------+-----------------------------+
+| Cell number           | Smith                       |
++-----------------------+-----------------------------+
+| Email address         | julian@gmail.com            |
++-----------------------+-----------------------------+
+| Physical address      | 28 Eagle Road, Umkomaas     |
++-----------------------+-----------------------------+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Total Cost of Project:				 R 1200000.0
+Total amount paid to date:			 R 140000.0
+
+
+
+____________________________________________________________
+Outstanding Balance:				 R 1060000.0

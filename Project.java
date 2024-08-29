@@ -1,79 +1,118 @@
 import java.io.Serializable;
 
-// Created 9 attributes
+/**
+ * Represents a project with various attributes such as project number, name, building design, and more.
+ * Implements Serializable for object serialization.
+ */
 public class Project implements Serializable {
-	private int project_number;
-	private String project_name;
-	private String building_design;
-	private String project_address;
-	private int ERF_number;
-	private double total_project_fee;
-	private double fee_paid_toDate;
-	private String project_deadline;
-	private String project_status;
-	
-	// Constructors to create objects.
-	public Project(int project_number, String project_name, String building_design, String project_address, int ERF_number, double total_project_fee, double fee_paid_toDate, String project_deadline, String project_status) {
-		this.project_number = project_number;
-		this.project_name = project_name;
-		this.building_design = building_design;
-		this.project_address = project_address;
-		this.ERF_number = ERF_number;
-		this.total_project_fee = total_project_fee;
-		this.fee_paid_toDate = fee_paid_toDate;
-		this.project_deadline = project_deadline;
-		this.project_status = project_status;
+	private int projectNumber;
+	private String projectName;
+	private String buildingDesign;
+	private String projectAddress;
+	private int erfNumber;
+	private double totalProjectFee;
+	private double feePaidToDate;
+	private String projectDeadline;
+	private String projectStatus;
+
+	/**
+	 * Constructs a new Project with the specified details.
+	 *
+	 * @param projectNumber   the project number
+	 * @param projectName     the project name
+	 * @param buildingDesign  the type of building design
+	 * @param projectAddress  the project address
+	 * @param erfNumber       the ERF number
+	 * @param totalProjectFee the total cost of the project
+	 * @param feePaidToDate   the amount paid to date
+	 * @param projectDeadline the project deadline
+	 * @param projectStatus   the current status of the project
+	 */
+	public Project(int projectNumber, String projectName, String buildingDesign, String projectAddress, int erfNumber, double totalProjectFee, double feePaidToDate, String projectDeadline, String projectStatus) {
+		this.projectNumber = projectNumber;
+		this.projectName = projectName;
+		this.buildingDesign = buildingDesign;
+		this.projectAddress = projectAddress;
+		this.erfNumber = erfNumber;
+		this.totalProjectFee = totalProjectFee;
+		this.feePaidToDate = feePaidToDate;
+		this.projectDeadline = projectDeadline;
+		this.projectStatus = projectStatus;
 	}
-	
-	// Created a method to get the project number.
+
+	// Getter methods
 	public int getProjectNum() {
-		return project_number;
+		return projectNumber;
 	}
-	// Created a method to get the Project name.
-    public String getProjectName() {
-    	return project_name;
-    }
-	// Created a method to get the building design.
-    public String getBuildingDesign() {
-    	return building_design;
-    }
-    // Created a method to get the address.
-    public String getProjectAddress() {
-    	return project_address;
-    }
-    // Created a method to get the ERF number.
-    public int getERFNum() {
-    	return ERF_number;
-    }
-    // Created a method to get the total project fee.
-    public double getTotalProjectFee() {
-    	return total_project_fee;
-    }
-    // Created a method to get the amount paid to date.
-    public double getFeePaidToDate() {
-    	return fee_paid_toDate;
-    }
-    // Created a method to get the project deadline date.
-    public String getProjectDeadline() {
-    	return project_deadline;
-    }
-    // Created a method to get the Project status.
-    public String getProjectStatus() {
-    	return project_status;
-    }
-    // Created a toString() method to display the details about the project.
-    public String toString() {
-    	String output = "Project number:\t\t\t\t " + project_number;
-    	output  += "\nProject name:\t\t\t\t " + project_name;
-    	output += "\nType of Building Design:\t\t " + building_design;
-    	output += "\nProject Address:\t\t\t " + project_address;
-    	output += "\nERF Number:\t\t\t\t " + ERF_number;
-    	output += "\nTotal Cost of Project:\t\t\t R " + total_project_fee;
-    	output += "\nTotal Cost Paid to date:\t\t R " + fee_paid_toDate;
-    	output += "\nProject Deadline:\t\t\t " + project_deadline;
-    	output += "\nProject Status:\t\t\t\t " + project_status;    	
-    	return output;
-       
-    }
-    
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public String getBuildingDesign() {
+		return buildingDesign;
+	}
+
+	public String getProjectAddress() {
+		return projectAddress;
+	}
+
+	public int getERFNum() {
+		return erfNumber;
+	}
+
+	public double getTotalProjectFee() {
+		return totalProjectFee;
+	}
+
+	public double getFeePaidToDate() {
+		return feePaidToDate;
+	}
+
+	public String getProjectDeadline() {
+		return projectDeadline;
+	}
+
+	public String getProjectStatus() {
+		return projectStatus;
+	}
+
+	/**
+	 * Returns a string representation of the project details.
+	 *
+	 * @return a string containing the formatted details of the project
+	 */
+	@Override
+	public String toString() {
+		return String.format(
+				"+--------------------------+---------------------------+\n" +
+						"| %-24s | %-25d |\n" +
+						"+--------------------------+---------------------------+\n" +
+						"| %-24s | %-25s |\n" +
+						"+--------------------------+---------------------------+\n" +
+						"| %-24s | %-25s |\n" +
+						"+--------------------------+---------------------------+\n" +
+						"| %-24s | %-25s |\n" +
+						"+--------------------------+---------------------------+\n" +
+						"| %-24s | %-25d |\n" +
+						"+--------------------------+---------------------------+\n" +
+						"| %-24s | %-25.2f |\n" +
+						"+--------------------------+---------------------------+\n" +
+						"| %-24s | %-25.2f |\n" +
+						"+--------------------------+---------------------------+\n" +
+						"| %-24s | %-25s |\n" +
+						"+--------------------------+---------------------------+\n" +
+						"| %-24s | %-25s |\n" +
+						"+--------------------------+---------------------------+\n",
+				"Project number", projectNumber,
+				"Project name", projectName,
+				"Type of Building Design", buildingDesign,
+				"Project Address", projectAddress,
+				"ERF Number", erfNumber,
+				"Total Cost of Project", totalProjectFee,
+				"Total Cost Paid to date", feePaidToDate,
+				"Project Deadline", projectDeadline,
+				"Project Status", projectStatus
+		);
+	}
 }
