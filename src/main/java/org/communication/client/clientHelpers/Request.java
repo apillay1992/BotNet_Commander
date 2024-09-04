@@ -23,4 +23,19 @@ public class Request {
         this.robotName = robotName;
         this.command = command;
     }
+
+    /**
+     * Constructs a new Request with the specified robot name, command,
+     * arguments, and robot.
+     *
+     * @param robotName The name of the robot.
+     * @param command The command to be executed.
+     * @param arguments The arguments for the command.
+     */
+    public Request(String robotName, String command, String[] arguments){
+        this.robotName = robotName;
+        this.command = command;
+        this.arguments = arguments;
+    }
+
 }
