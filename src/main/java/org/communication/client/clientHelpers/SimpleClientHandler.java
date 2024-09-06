@@ -72,7 +72,40 @@ public class SimpleClientHandler {
 //        }
 //    }
 
-
+    /**
+     * Handles the launch command specified by the user input parts.
+     * @param parts The parts of the user input command.
+     * @throws Exception If there's an error during robot instantiation or method invocation.
+     */
+//    private void handleLaunchCommand(String[] parts) throws Exception {
+//        //Check if the robot model exists in the list of robot models and if launch is allowed
+//        if (robotModels.contains(parts[1]) && Client.launchCount) {
+//            //Disable further launches
+//            Client.launchCount = false;
+//            robotLaunched = true; // Set the flag to indicate a robot has been launched
+//            // Create an instance of the robot
+//            Object robot = createRobotInstance(parts[1]);
+//
+//            // If robot instance is successfully created
+//            if (robot != null) {
+//                // Invoke methods to get shield and shots information using reflection
+//                String shield = (String) robot.getClass().getMethod("getShield").invoke(robot);
+//                String shots = (String) robot.getClass().getMethod("getShots").invoke(robot);
+//
+//                // Prepare arguments for the command
+//                String[] stringArgs = {parts[1], shield, shots};
+//
+//                // Create a Request object with robot name, command, and arguments
+//                Request request = new Request(parts[2], parts[0], stringArgs);
+//                out.println(gson.toJson(request));
+//                out.flush();
+//            }
+//        } else {
+//            // Print error message if launch is not allowed or robot model is invalid
+//            System.out.println(RED_BRIGHT + "You have already launched or invalid robot model!" + RESET);
+//        }
+//    }
+//
 
 
 }
