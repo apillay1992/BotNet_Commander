@@ -107,5 +107,26 @@ public class SimpleClientHandler {
 //    }
 //
 
+    /**
+     * Handles a valid command based on the user input parts.
+     * @param parts The parts of the user input command.
+     */
+//    public void handleValidCommand(String[] parts) {
+//        // Create a new Request object
+//        Request request = new Request();
+//
+//        // Set the command for the Request object
+//        request.setCommand(parts[0]);
+//
+//        // Check if there is exactly one argument provided and it is not a valid command
+//        if (parts.length == 2 && !validCommands.contains(parts[1])) {
+//            // Set the argument for the Request object
+//            request.setArguments(new String[]{parts[1]});
+//        }
+//        // Convert Request object to JSON and send it to output
+//        out.println(gson.toJson(request));
+//        out.flush();
+//    }
+
 
 }
