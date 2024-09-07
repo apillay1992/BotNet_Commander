@@ -7,7 +7,7 @@ import org.communication.client.Client;
 import org.communication.server.serverHelpers.robotModels.*;
 
 import static org.communication.server.serverHelpers.headers.DisplayHeaders.*;
-import static org.communication.server.serverHelpers.serverHandler.SimpleServer.validCommands;
+//import static org.communication.server.serverHelpers.serverHandler.SimpleServer.validCommands;
 import static org.communication.server.serverHelpers.world.Config.*;
 //import static org.communication.server.serverHelpers.serverHandler.SimpleServer.validCommands;
 
@@ -127,6 +127,23 @@ public class SimpleClientHandler {
 //        out.println(gson.toJson(request));
 //        out.flush();
 //    }
+
+    /**
+     * Displays an invalid command message for the given user input.
+     * If the user input starts with "help", it invokes the help menu method from the Client class.
+     * @param userInput The user input that resulted in an invalid command.
+     */
+//    private void displayInvalidCommandMessage(String userInput) {
+//        // Print an error message indicating invalid command or arguments
+//        System.out.println(RED_BRIGHT + "Invalid Command or Arguments. Try again or enter 'help'" + RESET);
+//
+//        // Check if user input starts with "help"
+//        if (userInput.startsWith("help")) {
+//            Client.helpMenu();
+//        }
+//    }
+
+
 
 
 }
