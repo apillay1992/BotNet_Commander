@@ -6,8 +6,8 @@ import com.google.gson.*;
 import org.communication.client.Client;
 import org.communication.server.serverHelpers.robotModels.*;
 
-import static org.communication.server.serverHelpers.headers.DisplayHeaders.*;
 //import static org.communication.server.serverHelpers.serverHandler.SimpleServer.validCommands;
+import static org.communication.server.serverHelpers.headers.DisplayHeaders.*;
 import static org.communication.server.serverHelpers.world.Config.*;
 //import static org.communication.server.serverHelpers.serverHandler.SimpleServer.validCommands;
 
@@ -143,7 +143,49 @@ public class SimpleClientHandler {
 //        }
 //    }
 
-
+    /**
+     * Handles responses received from the server and processes them accordingly.
+     * @param in The BufferedReader used to read server responses.
+     * @throws IOException If there's an error reading from the BufferedReader.
+     */
+//    public void handleServerResponse(BufferedReader in) throws IOException {
+//        String serverResponse;
+//        while ((serverResponse = in.readLine()) != null) {
+//            if (serverResponse.equals("quit")) {
+//                System.out.println(YELLOW_BRIGHT + "Game Over, bye!" + RESET);
+//                Client.keepRunning = false;
+//                System.exit(0);
+//                break;
+//            }
+//            if (serverResponse.equals("shot")) {
+//                System.out.println(YELLOW_BRIGHT + "You have been killed by another robot!!!" + RESET);
+//                System.out.println(YELLOW_BRIGHT + "Game Over, bye!" + RESET);
+//                Client.keepRunning = false;
+//                System.exit(0);
+//                break;
+//            }
+//            if (serverResponse.equals("pit")) {
+//                System.out.println(YELLOW_BRIGHT + "You have fallen into a bottomless pit!!!" + RESET);
+//                System.out.println(YELLOW_BRIGHT + "Game Over, bye!" + RESET);
+//                Client.keepRunning = false;
+//                System.exit(0);
+//                break;
+//            }
+//            if (serverResponse.contains("Too many of you in this world")) {
+//                Client.launchCount = true; // Reset the launchCount flag to allow launching a new robot
+//            }
+//            if (serverResponse.contains("Reloading Complete!")) {
+//                handleReloading();
+//            }
+//            if (serverResponse.contains("Repairing Complete!")) {
+//                handleRepairing();
+//            }
+//            displayServerResponse(serverResponse);
+//            System.out.println(BLUE_BRIGHT + "____________________________________________________" + RESET);
+//            System.out.println(RED_BRIGHT + "Hey Playa! Whats your next move ... ?" + RESET);
+//        }
+//    }
+//
 
 
 }
