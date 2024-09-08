@@ -187,5 +187,37 @@ public class SimpleClientHandler {
 //    }
 //
 
+    /**
+     * Handles the reloading process by setting the reloading flag,
+     * waiting for a specified reload time, and then clearing the reloading flag.
+     */
+//    private void handleReloading() {
+//        Client.reloading = true;
+//        try {
+//            // Simulate reloading time by sleeping the current thread
+//            Thread.sleep(reloadTime);
+//        } catch (InterruptedException e) {
+//            // Print stack trace if interrupted during sleep
+//            e.printStackTrace();
+//        }
+//        Client.reloading = false;
+//    }
+
+    /**
+     * Handles the repairing process by setting the repairing flag,
+     * waiting for a specified repair time, and then clearing the repairing flag.
+     */
+//    private void handleRepairing() {
+//        Client.repairing = true;
+//        try {
+//            // Simulate repair time by sleeping the current thread
+//            Thread.sleep(repairTime);
+//        } catch (InterruptedException e) {
+//            // Print stack trace if interrupted during sleep
+//            e.printStackTrace();
+//        }
+//        Client.repairing = false;
+//    }
+
 
 }
