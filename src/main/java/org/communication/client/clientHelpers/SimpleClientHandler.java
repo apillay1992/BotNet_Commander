@@ -219,5 +219,39 @@ public class SimpleClientHandler {
 //        Client.repairing = false;
 //    }
 
+    /**
+     * Creates an instance of a robot based on the provided model name.
+     * @param model The name of the robot model to instantiate.
+     * @return An instance of the specified robot model, or null if the model is invalid.
+     * @throws Exception If there's an error instantiating the robot.
+     */
+//    private Object createRobotInstance(String model) throws Exception {
+//        switch (model.toLowerCase()) {
+//            case "warpath":
+//                return new Warpath();
+//            case "venom":
+//                return new Venom();
+//            case "reaper":
+//                return new Reaper();
+//            case "demolisher":
+//                return new Demolisher();
+//            case "blaze":
+//                return new Blaze();
+//            default:
+//                // Print error message for invalid robot model
+//                System.out.println("Invalid robot model: " + model);
+//                return null;
+//        }
+//    }
+
+    /**
+     * Displays the server response by forwarding it to the Client's display method.
+     * @param serverResponse The response received from the server to display.
+     */
+//    private void displayServerResponse(String serverResponse) {
+//        // Forward the server response to the Client's display method
+//        Client.displayServerResponse(serverResponse);
+//    }
+
 
 }
