@@ -261,6 +261,22 @@ public class SimpleServer implements Runnable {
         return gson.toJson(response);
     }
 
+    /**
+     * Sends an orientation response to the client.
+     *
+     * @param robot The robot for which the orientation is being sent.
+     * @param gson Gson object for JSON serialization.
+     * @return JSON string response containing the robot's orientation.
+     */
+    private String sendOrientationResponseToClient(Robot robot, Gson gson){
+        Response response = new Response();
+        Map<String, Object> data = new HashMap<>();
+        data.put("direction", robot.getCurrentDirection() );
+        response.setData(data);
+        // Create and set the state object
+        return gson.toJson(response);
+    }
+
 
 
 }
