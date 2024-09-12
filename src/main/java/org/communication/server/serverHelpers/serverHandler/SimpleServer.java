@@ -242,5 +242,25 @@ public class SimpleServer implements Runnable {
         return gson.toJson(response);
     }
 
+    /**
+     * Sends a state response to the client.
+     *
+     * @param robot The robot for which the state is being sent.
+     * @param gson Gson object for JSON serialization.
+     * @param shield Current shield value of the robot.
+     * @param shots Current shots available for the robot.
+     * @return JSON string response containing the robot's state.
+     */
+    private String sendStateResponseToClient(Robot robot, Gson gson, int shield, int shots){
+        Response response = new Response();
+        // Create and set the state object
+        State state = new State(shield, shots);
+        state.setPosition(robot.coordinatePosition());
+        state.setDirection(robot.getCurrentDirection());
+        response.setState(state);
+        return gson.toJson(response);
+    }
+
+
 
 }
