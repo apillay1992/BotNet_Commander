@@ -180,4 +180,29 @@ public class SimpleServer implements Runnable {
 
     }
 
+    /**
+     * Sends a response to the client indicating a successful fire action (miss).
+     *
+     * @param gson Gson object for JSON serialization.
+     * @param shots Current shots available for the firing robot.
+     * @return JSON string response indicating a miss.
+     */
+    private String sendFireResponseMiss( Gson gson, int shots){
+        Map<String, Object> data = new HashMap<>();
+        Response response = new Response();
+        State state = new State(shots);
+        if (shots == 0){
+            data.put("message", "please reload bullets");
+        }else{
+            data.put("message", "Miss");
+        }
+        data.put("shots", state.getShots());
+        response.setState(state);
+        response.setData(data);
+
+        return gson.toJson(response);
+
+    }
+
+
 }
