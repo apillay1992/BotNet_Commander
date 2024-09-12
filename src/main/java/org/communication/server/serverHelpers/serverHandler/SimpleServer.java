@@ -204,5 +204,43 @@ public class SimpleServer implements Runnable {
 
     }
 
+    /**
+     * Sends a response to the client indicating a successful fire action (hit).
+     *
+     * @param hitRobot The robot that was hit by the fire.
+     * @param robot The robot initiating the fire.
+     * @param gson Gson object for JSON serialization.
+     * @param shields Current shield value of the firing robot.
+     * @param shots Current shots available for the firing robot.
+     * @return JSON string response indicating a hit.
+     */
+    private String sendFireResponseHit(Robot hitRobot, Robot robot, Gson gson, int shields, int shots) {
+        Map<String, Object> data = new HashMap<>();
+        Response response = new Response();
+
+        response.setResult("OK");
+        data.put("message", "Hit");
+        data.put("distance", robot.getDistance());
+        data.put("robot", hitRobot.getName());
+        Map<String, Object> hitRobotState = new HashMap<>();
+        hitRobotState.put("position", hitRobot.coordinatePosition());
+        hitRobotState.put("direction", hitRobot.getCurrentDirection());
+        if (hitRobot.getState().getShields() == 0){
+            hitRobot.getState().setStatus("DEAD");
+        }
+        hitRobotState.put("shields", hitRobot.getState().getShields());
+        hitRobotState.put("shots", hitRobot.getState().getShots());
+        hitRobotState.put("status", hitRobot.getState().getStatus());
+        data.put("state", hitRobotState);
+
+        response.setData(data);
+        State state = new State(shields, shots);
+        state.setPosition(robot.coordinatePosition());
+        state.setDirection(robot.getCurrentDirection());
+        state.setStatus("NORMAL");
+        response.setState(state);
+        return gson.toJson(response);
+    }
+
 
 }
