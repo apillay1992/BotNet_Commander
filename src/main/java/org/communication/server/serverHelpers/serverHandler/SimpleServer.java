@@ -277,6 +277,38 @@ public class SimpleServer implements Runnable {
         return gson.toJson(response);
     }
 
+    /**
+     * Sends a general response to the client containing robot's status and other details.
+     *
+     * @param robot The robot for which the response is being sent.
+     * @param gson Gson object for JSON serialization.
+     * @param shield Current shield value of the robot.
+     * @param shots Current shots available for the robot.
+     * @return JSON string response containing the robot's status and details.
+     */
+    private String sendResponsetoClient(Robot robot, Gson gson, int shield, int shots){
+        Response response = new Response();
+        // Create and set the state object
+        State state = new State(shield,shots);
+        state.setPosition(robot.coordinatePosition());
+        state.setDirection(robot.getCurrentDirection());
+        robot.setState(state);
+        state.setStatus("NORMAL");
+        response.setState(state);
+
+        response.setResult("OK");
+        // create and set the data map
+        Map<String, Object> data = new HashMap<>();
+        data.put("position", robot.coordinatePosition());
+        data.put("visibility", Config.getVisibility());
+        data.put("reload", "5 seconds");
+        data.put("repair", "5 seconds");
+        data.put("shields", robot.getState().getShields());
+        response.setData(data);
+        return gson.toJson(response);
+    }
+
+
 
 
 }
