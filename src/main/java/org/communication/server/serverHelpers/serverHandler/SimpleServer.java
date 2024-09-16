@@ -308,7 +308,24 @@ public class SimpleServer implements Runnable {
         return gson.toJson(response);
     }
 
+    /**
+     * Sends an error response to the client.
+     *
+     * @param robot The robot for which the error response is being sent.
+     * @param gson Gson object for JSON serialization.
+     * @param setResult Result type of the response (e.g., "ERROR").
+     * @param message Error message to be sent.
+     * @return JSON string error response.
+     */
+    private String errorResponse(Robot robot, Gson gson, String setResult, String message){
+        Response response = new Response();
+        response.setResult(setResult);
+        Map<String, Object> data = new HashMap<>();
+        data.put("message", message);
+        response.setData(data);
+        return gson.toJson(response);
 
+    }
 
 
 }
