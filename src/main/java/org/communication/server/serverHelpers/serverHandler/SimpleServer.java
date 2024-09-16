@@ -355,5 +355,84 @@ public class SimpleServer implements Runnable {
 
     }
 
+    /**
+     * Generates a successful look response as a JSON string, including information about obstacles.
+     *
+     * @param robot      The Robot object representing the current state of the robot.
+     * @param gson       The Gson object used for JSON serialization/deserialization.
+     * @param setResult  The result message to be set in the response.
+     * @param shield     The current shield value of the robot.
+     * @param shots      The current number of shots available for the robot.
+     * @return           The successful look response as a JSON string.
+     */
+    private String successfulLookResponse(Robot robot, Gson gson, String setResult, int shield, int shots) {
+        // Create the response object
+        Map<String, Object> data = new HashMap<>();
+        ArrayList<ObstacleType> objects = new ArrayList<>();
+        Response response = new Response();
+
+        // Add North obstacles
+        if (robot.obstacleSteps.containsKey("North_obstacle") && robot.obstacleSteps.get("North_obstacle") != 0) {
+            objects.add(new ObstacleType("North", "obstacle", robot.obstacleSteps.get("North_obstacle")));
+        }
+        if (robot.obstacleSteps.containsKey("North_mountain") && robot.obstacleSteps.get("North_mountain") != 0){
+            objects.add(new ObstacleType("North", "mountain", robot.obstacleSteps.get("North_mountain")));
+        }
+        if (robot.obstacleSteps.containsKey("North_robot") && robot.obstacleSteps.get("North_robot") != 0) {
+            objects.add(new ObstacleType("North", "robot", robot.obstacleSteps.get("North_robot")));
+        }
+
+        // Add East obstacles
+        if (robot.obstacleSteps.containsKey("East_obstacle") && robot.obstacleSteps.get("East_obstacle") != 0) {
+            objects.add(new ObstacleType("East", "obstacle", robot.obstacleSteps.get("East_obstacle")));
+        }
+        if (robot.obstacleSteps.containsKey("East_mountain") && robot.obstacleSteps.get("East_mountain") != 0){
+            objects.add(new ObstacleType("East", "mountain", robot.obstacleSteps.get("East_mountain")));
+        }
+        if (robot.obstacleSteps.containsKey("East_robot") && robot.obstacleSteps.get("East_robot") != 0) {
+            objects.add(new ObstacleType("East", "robot", robot.obstacleSteps.get("East_robot")));
+        }
+
+        // Add South obstacles
+        if (robot.obstacleSteps.containsKey("South_obstacle") && robot.obstacleSteps.get("South_obstacle") != 0) {
+            objects.add(new ObstacleType("South", "obstacle", robot.obstacleSteps.get("South_obstacle")));
+        }
+        if (robot.obstacleSteps.containsKey("South_mountain") && robot.obstacleSteps.get("South_mountain") != 0){
+            objects.add(new ObstacleType("South", "mountain", robot.obstacleSteps.get("South_mountain")));
+        }
+        if (robot.obstacleSteps.containsKey("South_robot") && robot.obstacleSteps.get("South_robot") != 0) {
+            objects.add(new ObstacleType("South", "robot", robot.obstacleSteps.get("South_robot")));
+        }
+
+        // Add West obstacles
+        if (robot.obstacleSteps.containsKey("West_obstacle") && robot.obstacleSteps.get("West_obstacle") != 0) {
+            objects.add(new ObstacleType("West", "obstacle", robot.obstacleSteps.get("West_obstacle")));
+        }
+        if (robot.obstacleSteps.containsKey("West_mountain") && robot.obstacleSteps.get("West_mountain") != 0){
+            objects.add(new ObstacleType("West", "mountain", robot.obstacleSteps.get("West_mountain")));
+        }
+        if (robot.obstacleSteps.containsKey("West_robot") && robot.obstacleSteps.get("West_robot") != 0) {
+            objects.add(new ObstacleType("West", "robot", robot.obstacleSteps.get("West_robot")));
+        }
+
+        response.setResult(setResult);
+
+        // Create the data map and populate it
+        data.put("message", robot.getStatus());
+        data.put("object", objects);
+        response.setData(data);
+
+        // Create and set the state object
+        State state = new State(shield, shots);
+        state.setPosition(robot.coordinatePosition());
+        state.setDirection(robot.getCurrentDirection());
+        state.setStatus("NORMAL");
+        response.setState(state);
+
+        // Convert response to JSON
+        return gson.toJson(response);
+    }
+
+
 
 }
