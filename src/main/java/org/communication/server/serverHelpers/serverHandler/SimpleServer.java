@@ -479,6 +479,50 @@ public class SimpleServer implements Runnable {
         return gson.toJson(response);
     }
 
+    /**
+     * Generates a response for repairing the robot's shields.
+     *
+     * @param robot  The Robot object representing the current state of the robot.
+     * @param gson   The Gson object used for JSON serialization/deserialization.
+     * @return       The repair response as a JSON string.
+     */
+    private String repairResponse(Robot robot, Gson gson){
+        if (robot.getRobotType().equalsIgnoreCase("venom")){
+            Venom venom = new Venom();
+            int repairShield = Integer.parseInt(venom.getShield());
+            robot.getState().setShields(repairShield);
+        }else if (robot.getRobotType().equalsIgnoreCase("blaze")){
+            Blaze blaze = new Blaze();
+            int repairShield = Integer.parseInt(blaze.getShield());
+            robot.getState().setShields(repairShield);
+        }else if (robot.getRobotType().equalsIgnoreCase("demolisher")) {
+            Demolisher demolisher = new Demolisher();
+            int repairShield = Integer.parseInt(demolisher.getShield());
+            robot.getState().setShields(repairShield);
+        }else if (robot.getRobotType().equalsIgnoreCase("reaper")) {
+            Reaper reaper = new Reaper();
+            int repairShield = Integer.parseInt(reaper.getShield());
+            robot.getState().setShields(repairShield);
+        }else if (robot.getRobotType().equalsIgnoreCase("warpath")) {
+            Warpath warpath = new Warpath();
+            int repairShield = Integer.parseInt(warpath.getShield());
+            robot.getState().setShields(repairShield);
+        }
+
+        Response response = new Response();
+        response.setResult("Repair");
+        Map<String, Object> data = new HashMap<>();
+        data.put("message", "Repairing Complete!");
+        State state = new State(robot.getState().getShields(), robot.getState().getShots());
+        state.setPosition(robot.coordinatePosition());
+        state.setDirection(robot.getCurrentDirection());
+        response.setState(state);
+        response.setData(data);
+        return gson.toJson(response);
+
+    }
+
+
 
 
 
