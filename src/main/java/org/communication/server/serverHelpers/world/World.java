@@ -103,5 +103,19 @@ public class World {
         return false;
     }
 
+    /**
+     * Returns the type of the obstacle as a String.
+     *
+     * @param obstacle The obstacle object.
+     * @return The type of the obstacle ("Obstacle", "Mountain", "Lake", "BottomLessPit", or "Unknown").
+     */
+    private String getObstacleType(Object obstacle) {
+        if (obstacle instanceof Obstacle) return "Obstacle";
+        if (obstacle instanceof Mountain) return "Mountain";
+        if (obstacle instanceof Lake) return "Lake";
+        if (obstacle instanceof BottomLessPit) return "BottomLessPit";
+        return "Unknown";
+    }
+
 
 }
