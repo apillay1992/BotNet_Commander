@@ -63,4 +63,45 @@ public class World {
         };
     }
 
+    /**
+     * Checks if a new obstacle collides with any existing obstacles.
+     *
+     * @param newObstacle The new obstacle to be checked.
+     * @return True if the new obstacle collides with any existing obstacle, false otherwise.
+     */
+    private boolean isCollidingWithExistingObstacles(Object newObstacle) {
+        for (Object obs : obstacles) {
+            switch (getObstacleType(obs)) {
+                case "Obstacle":
+                    Obstacle existingObstacle = (Obstacle) obs;
+                    if (isWithinRange(newObstacle, existingObstacle)) {
+                        return true;
+                    }
+                    break;
+                case "Mountain":
+                    Mountain existingMountain = (Mountain) obs;
+                    if (isWithinRange(newObstacle, existingMountain)) {
+                        return true;
+                    }
+                    break;
+                case "Lake":
+                    Lake existingLake = (Lake) obs;
+                    if (isWithinRange(newObstacle, existingLake)) {
+                        return true;
+                    }
+                    break;
+                case "BottomLessPit":
+                    BottomLessPit existingBottomLessPit = (BottomLessPit) obs;
+                    if (isWithinRange(newObstacle, existingBottomLessPit)) {
+                        return true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        return false;
+    }
+
+
 }
