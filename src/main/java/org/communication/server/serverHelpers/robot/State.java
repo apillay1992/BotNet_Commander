@@ -37,7 +37,6 @@ public class State {
         }else{
             this.shots = 0;
         }
-
     }
 
     /**
@@ -49,7 +48,6 @@ public class State {
         }else{
             this.shields = 0;
         }
-
     }
 
     /**

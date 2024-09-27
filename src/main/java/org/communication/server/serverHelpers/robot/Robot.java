@@ -517,5 +517,4 @@ public class  Robot {
         }
         return new Position(randomX,randomY);
     }
-
 }
