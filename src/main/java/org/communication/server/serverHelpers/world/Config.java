@@ -1,6 +1,5 @@
 package org.communication.server.serverHelpers.world;
 
-
 /**
  * Configuration class for the game world.
  * Contains default world boundaries, visibility range, reload time, and repair time.
